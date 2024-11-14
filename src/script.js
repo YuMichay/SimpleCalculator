@@ -1,8 +1,9 @@
 import './style.css'
 
 // mode change
-let toMode = "dark";
+let toMode = "light";
 const modeButton = document.querySelector(".mode_toggle");
+modeButton.textContent = `${toMode} mode`;
 
 const toggleMode = () => {
   if (modeButton.textContent.startsWith('light')) {
