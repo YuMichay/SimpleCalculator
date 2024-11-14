@@ -1,0 +1,233 @@
+:root {
+    --bg-light: #bababb;
+    --bg-dark: #232222;
+    --result-light: #848383;
+    --result-dark: #353535;
+    --top-light: #a5a5a5;
+    --top-dark: #5e5e5e;
+    --operations-light: #f8b257;
+    --operations-dark: #f19926;
+    --digits-light: #e4e5e7;
+    --digits-dark: #929292;
+    --text-light: #353535;
+    --text-dark: #e3e0e0;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculator {
+    width: 300px;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.wrapper {
+    width: 99.5%;
+    height: 99.6%;
+    border: 1px solid #bdbcbc;
+    border-radius: 20px;
+    font-size: 38px;
+}
+
+.wrapper_result {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    background-color: #353535;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.wrapper_keyboard {
+    width: 100%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1fr;
+    grid-template-rows: 1fr 4fr;
+    text-align: center;
+}
+
+.keyboard_top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / 4;
+    font-size: 24px;
+}
+
+.keyboard_operations {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 1 / 3;
+    grid-column: 4;
+    border-bottom-right-radius: 20px;
+}
+
+.keyboard_digits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / 4;
+    border-bottom-left-radius: 20px;
+}
+
+.result {
+    display: none;
+    font-size: 38px;
+}
+
+.number {
+    width: 90%;
+    height: 100%;
+    padding: 5%;
+    background-color: transparent;
+    border: none;
+    text-align: end;
+    outline: none;
+    font-size: 48px;
+}
+
+.number::-webkit-outer-spin-button,
+.number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.key,
+.digit,
+.comma {
+    display: flex;
+    width: 99%;
+    height: 99%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.digit-double {
+    width: 99.5%;
+    height: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2;
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.division,
+.mltpl,
+.sub,
+.sum,
+.total {
+    height: 99%;
+}
+
+.total {
+    border-bottom-right-radius: 20px;
+}
+
+.key:hover,
+.digit:hover,
+.comma:hover,
+.digit-double:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.key:active,
+.digit-double:active,
+.digit:active,
+.comma:active {
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* dark theme */
+body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.calculator.dark-theme {
+    box-shadow: 4px 4px 10px rgba(203, 203, 203, 0.2);
+}
+
+.wrapper_result.dark-theme {
+    background-color: var(--result-dark);
+}
+
+.keyboard_top.dark-theme {
+    background-color: var(--top-dark);
+}
+
+.keyboard_operations.dark-theme {
+    background-color: var(--operations-dark);
+}
+
+.keyboard_digits.dark-theme {
+    background-color: var(--digits-dark);
+}
+
+.number.dark-theme,
+.result.dark-theme {
+    color: var(--text-dark);
+}
+
+.key.dark-theme,
+.digit.dark-theme,
+.digit-double.dark-theme,
+.comma.dark-theme {
+    border-right: 1px solid var(--result-dark);
+    border-bottom: 1px solid var(--result-dark);
+}
+
+/* light theme */
+body.light-theme {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.calculator.light-theme {
+    box-shadow: 4px 4px 10px rgba(36, 36, 36, 0.2);
+}
+
+.wrapper_result.light-theme {
+    background-color: var(--result-light);
+}
+
+.keyboard_top.light-theme {
+    background-color: var(--top-light);
+}
+
+.keyboard_operations.light-theme {
+    background-color: var(--operations-light);
+}
+
+.keyboard_digits.light-theme {
+    background-color: var(--digits-light);
+}
+
+.number.light-theme,
+.result.light-theme {
+    color: var(--text-light);
+}
+
+.key.light-theme,
+.digit.light-theme,
+.digit-double.light-theme,
+.comma.light-theme {
+    border-right: 1px solid var(--result-light);
+    border-bottom: 1px solid var(--result-light);
+}
