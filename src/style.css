@@ -1,8 +1,8 @@
 :root {
     --bg-light: #bababb;
     --bg-dark: #232222;
-    --result-light: #979797;
-    --result-dark: #353535;
+    --display-light: #979797;
+    --display-dark: #353535;
     --top-light: #a5a5a5;
     --top-dark: #5e5e5e;
     --digits-light: #e4e5e7;
@@ -43,16 +43,18 @@ body {
     font-size: 38px;
 }
 
-.wrapper_result {
+.wrapper_display {
     width: 100%;
     height: 30%;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
     align-items: flex-end;
     background-color: #353535;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    text-align: end;
+    outline: none;
+    font-size: 48px;
 }
 
 .wrapper_keyboard {
@@ -87,15 +89,10 @@ body {
     border-bottom-left-radius: 20px;
 }
 
-.result {
-    display: none;
-    font-size: 38px;
-}
-
-.number {
+.wrapper_number {
     width: 90%;
     height: 100%;
-    padding: 5%;
+    padding: 0 5%;
     background-color: transparent;
     border: none;
     text-align: end;
@@ -103,8 +100,8 @@ body {
     font-size: 48px;
 }
 
-.number::-webkit-outer-spin-button,
-.number::-webkit-inner-spin-button {
+.wrapper_number::-webkit-outer-spin-button,
+.wrapper_number::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -171,25 +168,25 @@ body {
 }
 
 body.dark-mode .mode_toggle {
-    border: 1px solid var(--result-dark);
+    border: 1px solid var(--display-dark);
     background-color: var(--digits-dark);
     color: var(--text-dark);
 }
 
 body.light-mode .mode_toggle {
-    border: 1px solid var(--result-light);
+    border: 1px solid var(--display-light);
     background-color: var(--digits-light);
     color: var(--text-light);
 }
 
 body.dark-mode .mode_toggle:hover {
-    border: 1px solid var(--result-light);
+    border: 1px solid var(--display-light);
     background-color: var(--digits-light);
     color: var(--text-light);
 }
 
 body.light-mode .mode_toggle:hover {
-    border: 1px solid var(--result-dark);
+    border: 1px solid var(--display-dark);
     background-color: var(--digits-dark);
     color: var(--text-dark);
 }
@@ -204,8 +201,8 @@ body.dark-mode .calculator {
     box-shadow: 4px 4px 10px rgba(203, 203, 203, 0.2);
 }
 
-body.dark-mode .wrapper_result {
-    background-color: var(--result-dark);
+body.dark-mode .wrapper_display {
+    background-color: var(--display-dark);
 }
 
 body.dark-mode .keyboard_top {
@@ -216,8 +213,7 @@ body.dark-mode .keyboard_digits {
     background-color: var(--digits-dark);
 }
 
-body.dark-mode .number,
-body.dark-mode .result {
+body.dark-mode .wrapper_number {
     color: var(--text-dark);
 }
 
@@ -225,8 +221,8 @@ body.dark-mode .key,
 body.dark-mode .digit,
 body.dark-mode .digit-double,
 body.dark-mode .comma {
-    border-right: 1px solid var(--result-dark);
-    border-bottom: 1px solid var(--result-dark);
+    border-right: 1px solid var(--display-dark);
+    border-bottom: 1px solid var(--display-dark);
 }
 
 /* light mode */
@@ -236,11 +232,11 @@ body.light-mode {
 }
 
 body.light-mode .calculator {
-    box-shadow: 4px 4px 10px rgba(203, 203, 203, 0.2);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-body.light-mode .wrapper_result {
-    background-color: var(--result-light);
+body.light-mode .wrapper_display {
+    background-color: var(--display-light);
 }
 
 body.light-mode .keyboard_top {
@@ -251,8 +247,7 @@ body.light-mode .keyboard_digits {
     background-color: var(--digits-light);
 }
 
-body.light-mode .number,
-body.light-mode .result {
+body.light-mode .wrapper_number {
     color: var(--text-light);
 }
 
@@ -260,6 +255,6 @@ body.light-mode .key,
 body.light-mode .digit,
 body.light-mode .digit-double,
 body.light-mode .comma {
-    border-right: 1px solid var(--result-light);
-    border-bottom: 1px solid var(--result-light);
+    border-right: 1px solid var(--display-light);
+    border-bottom: 1px solid var(--display-light);
 }
