@@ -47,13 +47,13 @@ const calculate = (firstOp, secondOp, op) => {
       break;
   }
   isOperatorClicked = false;
-  display.value = firstOperand;
+  display.value = firstOperand.toString().replace('.', ',');
 }
 
 const doOperation = (operation, digit) => {
   if (operation === 'ac') display.value = '0';
-  if (operation === 'sign') display.value = digit * -1;
-  if (operation === 'percent') display.value = digit / 100;
+  if (operation === 'sign') display.value = (digit * -1).replace('.', ',');
+  if (operation === 'percent') display.value = (digit / 100).replace('.', ',');
 }
 
 keyboard.addEventListener('click', e => {
@@ -65,10 +65,10 @@ keyboard.addEventListener('click', e => {
     if (operation === 'division' || operation === 'mltpl' || operation === 'sub' || operation === 'sum') {
       isOperatorClicked = true;
       isDisplayUpdated = false;
-      firstOperand = +enteredDigit;
+      firstOperand = parseFloat(enteredDigit.replace(',', '.'));
       currentOperator = operation;
     } else if (operation === 'ac' || operation === 'sign' || operation === 'percent') {
-      doOperation(operation, +enteredDigit);
+      doOperation(operation, parseFloat(enteredDigit.replace(',', '.')));
     } else if (operation === 'total') {
       calculate(firstOperand, secondOperand, currentOperator);
     }
@@ -84,7 +84,7 @@ keyboard.addEventListener('click', e => {
     const displayedDigit = enteredDigit === '0' ? digit : enteredDigit + digit;
 
     if (isOperatorClicked) {
-      secondOperand = +displayedDigit;
+      secondOperand = parseFloat(displayedDigit.replace(',', '.'));
     }
 
     display.value = displayedDigit;
