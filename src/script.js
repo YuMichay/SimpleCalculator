@@ -47,7 +47,7 @@ const calculate = (firstOp, secondOp, op) => {
       break;
   }
   isOperatorClicked = false;
-  display.value = firstOperand.toString().replace('.', ',');
+  display.value = parseFloat(firstOperand.toFixed(10)).toString().replace('.', ',');
 }
 
 const doOperation = (operation, digit) => {
